@@ -10,4 +10,9 @@ def searcher(NrOfBlocks):
     for i in range(NrOfBlocks):
         url = url.format(i)
         soup = souper(requests.get(url))
-        print(soup)
+        resp = json.loads(soup.text)
+        for link in resp :
+            print(link)
+
+if __name__ == "__main__":
+    searcher(1)
